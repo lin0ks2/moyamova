@@ -68,7 +68,8 @@
     const labelSetup = T('setupTitle', L(eff).setupTitle, eff);
     const labelUi = T('uiLanguage', L(eff).uiLanguage, eff);
     const labelStudy = T('studyLanguage', L(eff).studyLanguage, eff);
-    const labelOk = T('ok', L(eff).ok, eff) || T('confirm', L(eff).ok, eff);
+  const labelModeTitle = T('modeTitle', (L(eff).modeTitle||'Выбор режима тренировки'), eff);
+  const labelOk = T('ok', L(eff).ok, eff) || T('confirm', L(eff).ok, eff);
 
     m.innerHTML = `
       <div class="backdrop"></div>
@@ -86,7 +87,9 @@
             <div class="langFlags flagsRow" id="setupStudyFlags"></div>
           </div>
 
-        <!-- Mode toggle in setup -->
+        
+          <div class="field"><div class="label">${labelModeTitle}</div></div>
+<!-- Mode toggle in setup -->
         <div id="setupModeToggleWrap" class="field flex-center gap-10 mt-10">
           <label for="setupModeToggle" class="flex-center gap-10 cursor-pointer">
             <span data-i18n="modeNormal">${T('modeNormal', (L(eff).modeNormal||'Обычный режим'), eff)}</span>
