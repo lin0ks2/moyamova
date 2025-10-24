@@ -18,10 +18,9 @@
 
       // ===== Режимы / общие UI =====
       modeSelection: "Выбор режима",
+      modeTitle: "Выбор режима тренировки",
       modeHard: "Сложный",
       modeNormal: "Обычный",
-      reloadQuestion: \"Перезагрузить?\",
-      updateNone: \"обновлений нет\",
       ok: "OK",
       choose: "Выберите перевод",
       iDontKnow: "Не знаю",
@@ -116,10 +115,9 @@
 
       // ===== Режими / загальний UI =====
       modeSelection: "Вибір режиму",
+      modeTitle: "Вибір режиму тренування",
       modeHard: "Складний",
       modeNormal: "Звичайний",
-      reloadQuestion: \"Перезавантажити?\",
-      updateNone: \"оновлень немає\",
       ok: "OK",
       choose: "Оберіть переклад",
       iDontKnow: "Не знаю",
