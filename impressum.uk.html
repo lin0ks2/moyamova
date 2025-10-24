@@ -5,39 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Юридична інформація (Impressum)</title>
 </head>
-\1
+<body>
 
 <style>
-:root{--nav-bg:#f7f7f7;--nav-fg:#222;--link:#2563eb;--sep:#ddd}
-@media (prefers-color-scheme: dark){
-  :root{--nav-bg:#0f1115;--nav-fg:#eaeaea;--link:#60a5fa;--sep:#2a2d36}
-}
-body{margin:0;}
-.topbar{
-  position:sticky; top:0; z-index:9;
-  display:flex; gap:12px; align-items:center; flex-wrap:wrap;
-  padding:10px 14px; background:var(--nav-bg); color:var(--nav-fg);
-  border-bottom:1px solid var(--sep);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-  font-size:14px;
-}
-.topbar a{ color:var(--link); text-decoration:none; }
-.topbar a:hover{ text-decoration:underline; }
-.spacer{ flex:1 1 auto; }
-.badge{ border:1px solid var(--sep); border-radius:10px; padding:4px 8px; }
-.lang a{ margin-left:6px; }
-.lang .active{ font-weight:700; text-decoration:underline; }
-main{ padding: 16px; max-width: 920px; margin: 0 auto; }
+html,body{background:#fff;color:#111;margin:0;padding:0}
+*{box-sizing:border-box}
+main{padding:20px 16px 24px;max-width:920px;margin:0 auto;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:#111}
+h1,h2{color:#111}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #eee}
+.topbar .wrap{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+a{color:#0b57d0;text-decoration:none}
+a:hover{text-decoration:underline}
+.lang{color:#555}
+.lang .sep{margin:0 8px;color:#c0c0c0}
+/* bottom block with divider */
+.bottomnav{max-width:920px;margin:28px auto 24px;padding:16px 16px 0;text-align:center;border-top:1px solid #eee}
+.bottomnav .links{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;margin-top:10px}
+.bottomnav .links a{color:#5778c5;text-decoration:none;font-size:0.95rem;opacity:0.9}
+.bottomnav .links a:hover{opacity:1;text-decoration:underline}
+.bottom-back{margin:12px 0 0;font-size:1rem}
 </style>
 
 <div class="topbar">
-  <a href="./">← Повернутися до тренування</a>
-  <span class="spacer"></span>
-  <span class="badge"><a href="privacy.uk.html">Політика конфіденційності</a></span>
-  <span class="badge"><a href="terms.uk.html">Умови використання</a></span>
-  <span class="badge"><a href="impressum.uk.html">Юридична інформація</a></span>
-  <span class="spacer"></span>
-  <span class="lang">Мова: <a href="impressum.ru.html">RU</a> / <span class="active">UK</span> / <a href="impressum.en.html">EN</a></span>
+  <div class="wrap">
+    <a href="./">← Повернутися до тренування</a>
+    <div class="lang"><a href="impressum.ru.html">RU</a> <span class="sep">|</span> <span>UK</span> <span class="sep">|</span> <a href="impressum.en.html">EN</a></div>
+  </div>
 </div>
 
   <main>
@@ -65,5 +59,13 @@ main{ padding: 16px; max-width: 920px; margin: 0 auto; }
 
     <p><em>Останнє оновлення: Жовтень 2025</em></p>
   </main>
+
+<div class="bottomnav">
+  <div class="links">
+    <a href="privacy.uk.html">Політика конфіденційності</a>
+<a href="terms.uk.html">Умови використання</a>
+  </div>
+  <div class="bottom-back"><a href="./">← Повернутися до тренування</a></div>
+</div>
 </body>
 </html>
