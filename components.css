@@ -81,11 +81,11 @@ header .brand{
   box-shadow: 0 0 0 2px var(--focus-ring);
 }
 header .logo-mark{
-  width:auto;
-  height: 52px;
+  width: 50;
+  height: auto;
   border-radius: 6px;
   background: var(--card);
-  border: 1px solid var(--border);
+  border: 0px solid var(--border);
   padding: 2px;
   object-fit: contain;
   pointer-events: none;
