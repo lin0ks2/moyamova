@@ -354,3 +354,45 @@ html[data-theme="dark"] #infoModal .infoContent > ul{
   border-radius:.5rem;
   text-decoration:none;
 }
+/* === Тонкая типографика для мелких элементов === */
+
+/* Общие стили мелкого текста */
+small,
+.smallText,
+footer a,
+.legal-link,
+.modal ul li,
+#infoModal li,
+.footer-text {
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  color: rgba(0, 0, 0, 0.85);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Подписи, служебные тексты */
+.subtle, .caption, .hint, footer, .modal-footer {
+  font-weight: 400;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* Тёмная тема */
+html[data-theme="dark"] small,
+html[data-theme="dark"] .smallText,
+html[data-theme="dark"] footer a,
+html[data-theme="dark"] .legal-link,
+html[data-theme="dark"] .modal ul li,
+html[data-theme="dark"] #infoModal li {
+  color: rgba(255,255,255,0.88);
+  opacity: 0.9;
+}
+
+/* Мягкий hover для ссылок в подвале */
+footer a:hover,
+.legal-link:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
