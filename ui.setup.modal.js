@@ -88,7 +88,7 @@
           </div>
 
         
-          <div class="field"><div class="label">${labelModeTitle}</div></div>
+          <div class="field"><div class="label" data-i18n="modeTitle">${labelModeTitle}</div></div>
 <!-- Mode toggle in setup -->
         <div id="setupModeToggleWrap" class="field flex-center gap-10 mt-10">
           <label for="setupModeToggle" class="flex-center gap-10 cursor-pointer">
