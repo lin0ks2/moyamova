@@ -82,7 +82,7 @@ header .brand{
 }
 header .logo-mark{
   width: auto;
-  height: 52px;
+  height: 48px;
   border-radius: 6px;
   background: var(--card);
   border: 1px solid var(--border);
