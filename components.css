@@ -81,8 +81,8 @@ header .brand{
   box-shadow: 0 0 0 2px var(--focus-ring);
 }
 header .logo-mark{
-  width: 46px;
-  height: 46px;
+  width:52px;
+  height: 52px;
   border-radius: 6px;
   background: var(--card);
   border: 1px solid var(--border);
@@ -470,56 +470,6 @@ footer{
 .infoContent ul{
   margin: 6px 0 0 18px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #modeToggleWrap{
   user-select: none;
   display: flex;
@@ -568,32 +518,6 @@ footer{
 #modeToggleWrap span{
   font-size: 14px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #setupModeToggleWrap #setupModeToggle{
   appearance: none;
   position: relative;
@@ -665,7 +589,6 @@ footer{
   border: 1px solid #374151;
   box-shadow: none;
 }
-
 .card.mode-normal::after,
 .card.mode-hard::after{
   content: "";
@@ -724,14 +647,10 @@ footer{
 .setsSpoilerBody{
   padding: 8px;
 }
-
-
 .dictSpoiler .flag{
   margin-right: 6px;
 }
-
 :root.light
-
 #setControls{
   display: flex;
   flex-direction: column;
@@ -747,11 +666,6 @@ footer{
   padding: 4px 0 2px;
   margin: 4px 0 4px;
 }
-
-
-
-
-
 #setsBar{
   --tiles-per-row: 10;
   --tile-gap: 3px;
@@ -786,7 +700,6 @@ footer{
 #setsBar{
   justify-content: flex-start;
 }
-
 .dictSpoiler > summary{
   position: relative;
   padding-left: 28px;
@@ -821,7 +734,6 @@ footer{
 .dictSpoiler > summary:focus-visible::after{
   opacity: 1;
 }
-
 .dictSpoiler:not([open]) > summary{
   border-radius: 12px;
 }
@@ -831,7 +743,6 @@ footer{
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
-
 .dictSpoiler{
   border-radius: var(--spoiler-radius);
   overflow: visible;
@@ -882,20 +793,12 @@ footer{
 .dictSpoiler > summary::marker{
   content: "";
 }
-
-
-
-
 .heart svg{
   width: 1em;
   height: 1em;
   display: inline-block;
   vertical-align: -0.2em;
 }
-
-
-
-
 .tabPanel.hidden{
   display: none;
 }
@@ -916,7 +819,6 @@ footer{
   border-bottom-color: var(--accent, #888);
   font-weight: 600;
 }
-
 #panel-about{
   text-align: center;
 }
@@ -940,45 +842,6 @@ footer{
   background: var(--border);
   border: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .center{
   text-align: center;
 }
@@ -1007,13 +870,6 @@ footer{
 .cursor-pointer{
   cursor: pointer;
 }
-
-
-
-
-
-
-
 #modeToggleWrap .switchLabel{
   display: flex;
   align-items: center;
