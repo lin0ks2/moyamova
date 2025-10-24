@@ -31,9 +31,9 @@
   function L(lang){
     const l=(lang||'').toLowerCase();
     const map={
-      ru:{setupTitle:'Начальная настройка', uiLanguage:'Язык интерфейса', studyLanguage:'Язык тренировки', chooseDeck:'Выберите словарь', ok:'OK', modeNormal:'Обычный режим', modeHard:'Сложный режим'},
-      uk:{setupTitle:'Початкове налаштування', uiLanguage:'Мова інтерфейсу', studyLanguage:'Мова тренування', chooseDeck:'Оберіть словник', ok:'OK', modeNormal:'Звичайний режим', modeHard:'Складний режим'},
-      en:{setupTitle:'Initial setup', uiLanguage:'Interface language', studyLanguage:'Study language', chooseDeck:'Choose deck', ok:'OK', modeNormal:'Normal mode', modeHard:'Hard mode'}
+      ru:{setupTitle:'Начальная настройка', uiLanguage:'Язык интерфейса', studyLanguage:'Язык тренировки', modeTitle:'Выбор режима тренировки', chooseDeck:'Выберите словарь', ok:'OK', modeNormal:'Обычный режим', modeHard:'Сложный режим'},
+      uk:{setupTitle:'Початкове налаштування', uiLanguage:'Мова інтерфейсу', studyLanguage:'Мова тренування', modeTitle:'Вибір режиму тренування', chooseDeck:'Оберіть словник', ok:'OK', modeNormal:'Звичайний режим', modeHard:'Складний режим'},
+      en:{setupTitle:'Initial setup', uiLanguage:'Interface language', studyLanguage:'Study language', modeTitle:'Training mode selection', chooseDeck:'Choose deck', ok:'OK', modeNormal:'Normal mode', modeHard:'Hard mode'}
     };
     return map[l]||map.ru;
   }
@@ -145,6 +145,7 @@ const uiFlagsEl = m.querySelector('#setupUiFlags');
       m.querySelector('.modalTitle').textContent = (I18N[code]?.setupTitle)||lab.setupTitle;
       m.querySelectorAll('.field .label')[0].textContent = (I18N[code]?.uiLanguage)||lab.uiLanguage;
       m.querySelectorAll('.field .label')[1].textContent = (I18N[code]?.studyLanguage)||lab.studyLanguage;
+      try{ m.querySelectorAll('.field .label')[2].textContent = (I18N[code]?.modeTitle) || lab.modeTitle || 'Выбор режима тренировки'; }catch(_){}
       okBtn.textContent = (I18N[code]?.ok || I18N[code]?.confirm || lab.ok);
       try{
         const normalSpan = m.querySelector('#setupModeToggleWrap [data-i18n="modeNormal"]');
