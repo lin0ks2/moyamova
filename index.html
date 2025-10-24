@@ -22,16 +22,16 @@
 <link href="./favicon-192x192.png?v=1.0" rel="icon" sizes="192x192" type="image/png"/>
 <link href="./favicon-512x512.png?v=1.0" rel="icon" sizes="512x512" type="image/png"/>
 <link href="./favicon-256x256.png?v=1.0" rel="icon" sizes="256x256" type="image/png"/>
-<link href="./favicon-192x192.png?v=1.0" rel="icon" sizes="192x192" type="image/png"/>
+
 <link href="./favicon-128x128.png?v=1.0" rel="icon" sizes="128x128" type="image/png"/>
 <link href="./favicon-48x48.png?v=1.0" rel="icon" sizes="48x48" type="image/png"/>
 <link href="./favicon-16x16.png?v=1.0" rel="icon" sizes="16x16" type="image/png"/>
-<link href="./favicon-512x512.png?v=1.0" rel="icon" sizes="512x512" type="image/png"/>
-<link href="./favicon-128x128.png?v=1.0" rel="icon" sizes="128x128" type="image/png"/>
+
+
 <link href="./favicon-32x32.png?v=1.0" rel="icon" sizes="32x32" type="image/png"/>
-<link href="./favicon-32x32.png?v=1.0" rel="icon" sizes="32x32" type="image/png"/>
+
 <link href="./favicon.ico?v=1.0" rel="icon" type="image/x-icon"/>
-<link href="./favicon-512x512.png?v=1.0" rel="icon" sizes="512x512"/>
+
 <link href="./site.webmanifest?v=1.0" rel="manifest"/>
 <meta content="yes" name="mobile-web-app-capable"/>
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
@@ -46,22 +46,22 @@
 <!-- ============================ SOCIAL PREVIEW ============================ -->
 <meta content="website" property="og:type"/>
 <meta content="MOYAMOVA · учите слова легко" property="og:title"/>
-<meta content="Карточки, быстрые сессии, Избранное и статистика прогресса. Учите новые слова каждый день без рекламы и подписки." property="og:description"/>
-<meta content="./og-image.png?v=1.0" property="og:image"/>
-<meta content="image/png" property="og:image:type"/>
+<meta content="Карточки, быстрые сессии, Избранное и статистика прогресса. Учите новые слова каждый день без рекламы и подписки." property="og:description"/><meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="MOYAMOVA · учите слова легко" name="twitter:title"/>
-<meta content="Карточки, быстрые сессии, Избранное и статистика прогресса. Учите новые слова каждый день без рекламы и подписки." name="twitter:description"/>
-<meta content="./og-image.png?v=1.0" name="twitter:image"/>
-<style id="modal-inline-fix-1.6.3-1758932002">
+<meta content="Карточки, быстрые сессии, Избранное и статистика прогресса. Учите новые слова каждый день без рекламы и подписки." name="twitter:description"/><style id="modal-inline-fix-1.6.3-1758932002">
 /* Critical inline for iOS cache issues — v1.6.5-1758932002 */
 .modal .modalHeader{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:14px 14px!important;border-bottom:none!important;font-size:20px!important;font-weight:700!important;line-height:1.2!important}
 .modal .iconBtn.small{width:32px!important;height:32px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-size:18px!important;border-radius:8px!important;background:transparent!important;border:1px solid rgba(255,255,255,.08)!important;opacity:.9!important}
 #modal .modalBody{padding-bottom:0px!important}
 #modal .dictList{padding-bottom:14px!important}
 #modal .dictList > *:last-child{margin-bottom:8px!important}
+
+.cta{padding:.5rem 1rem;border-radius:.5rem;border:1px solid currentColor;text-decoration:none;display:inline-block}
+.cta:hover{transform:translateY(-1px)}
+
 </style>
 <style id="dicts-modal-fix">#modal .modalHeader{border-bottom:none!important}</style>
 <link href="./tokens.css?v=1.0" rel="stylesheet"/>
@@ -79,7 +79,10 @@
   letter-spacing: 0.2px;
 }
 header .tagline, .site-header .tagline, .subtitle, .slogan { display: none !important; }
-</style></head>
+</style>  <link rel="canonical" href="./">
+  <meta name="description" content="MOYAMOVA — тренажёр слов и диалога. Оффлайн, без регистрации, RU/UK/EN/DE.">
+  <link rel="stylesheet" href="./donate.css?v=1">
+</head>
 <body>
 <header>
 <div class="brand">
@@ -94,8 +97,7 @@ header .tagline, .site-header .tagline, .subtitle, .slogan { display: none !impo
 <button aria-label="Тема" class="iconBtn" data-title-key="tt_ui_theme" id="themeToggleBtn">🌞</button>
 <button aria-label="Язык интерфейса" class="iconBtn" data-title-key="tt_ui_lang" id="langToggleBtn">🇺🇦</button>
 <button aria-label="Словари" class="iconBtn gear" data-title-key="tt_dicts" id="dictsBtn">📚</button>
-</div>
-</header>
+</div></header>
 <details class="dictSpoiler" id="dictSpoiler">
 <summary><span class="flag" id="dictFlag">📚</span><span class="name" id="dictTitleInSpoiler">—</span></summary>
 <div id="setControls">
@@ -168,6 +170,9 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 <!-- Donate modal (same structure as Settings) -->
 <div aria-labelledby="donateTitle" aria-modal="true" class="modal hidden" id="donateModal" role="dialog">
 <div class="modalFrame">
@@ -177,25 +182,75 @@ document.addEventListener('DOMContentLoaded', function(){
 </div>
 <div class="modalBody">
 <div class="infoContent center" id="donateContent">
-<div class="mt-20" id="donate-button-container">
-<div id="donate-button"></div>
-<script charset="UTF-8" src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js"></script>
-<script>
-      PayPal.Donation.Button({
-        env:'production',
-        hosted_button_id:'KFBR8BW5ZZTQ4',
-        image: {
-          src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-          alt:'Donate with PayPal button',
-          title:'PayPal - The safer, easier way to pay online!'
-        }
-      }).render('#donate-button');
-    </script>
+
+<!-- Monobank -->
+<div class="donateBlock">
+  <div class="donateTitle" data-i18n="donateMonoTitle">Підтримати через Monobank</div>
+  <div class="donatePresets">
+    <button class="donateBtn" data-mono-amount="50">50 ₴</button>
+    <button class="donateBtn" data-mono-amount="100">100 ₴</button>
+    <button class="donateBtn" data-mono-amount="200">200 ₴</button>
+    <button class="donateBtn" data-mono-amount="0" data-i18n="donateMonoCustom">Інша сума</button>
+  </div>
+  <a class="donatePrimary" href="#" id="monoDonateLink" rel="noopener" target="_blank" data-i18n="donateMonoOpen">
+    Відкрити Monobank
+  </a>
 </div>
+
+<!-- PayPal -->
+<div class="donateBlock">
+  <div class="donateTitle" data-i18n="donatePaypalTitle">Підтримати через PayPal</div>
+  <div class="mt-20" id="donate-button-container">
+    <a class="donatePrimary" href="#" id="paypalDonateLink" rel="noopener" target="_blank" data-i18n="donatePaypalOpen">
+      Відкрити PayPal
+    </a>
+<script>
+(function(){
+  // PayPal hosted button link (keeps your hosted_button_id)
+  const PAYPAL_BUTTON_ID = 'KFBR8BW5ZZTQ4'; // TODO: замените при необходимости
+  function paypalUrl(amount){
+    const base = `https://www.paypal.com/donate/?hosted_button_id=${PAYPAL_BUTTON_ID}`;
+    if (!amount || Number(amount) <= 0) return base;
+    return base + `&amount=${encodeURIComponent(String(amount))}`; // optional preset
+  }
+  const link = document.getElementById('paypalDonateLink');
+  if (link) link.addEventListener('click', function(e){
+    e.preventDefault();
+    const w = window.open(paypalUrl(0), '_blank', 'noopener');
+    if (w && w.opener) w.opener = null;
+  });
+})();
+</script>
+</div>
+</div>
+
+<script>
+(function(){
+  // Monobank donate
+  const MONO_JAR_ID = '56HNLifwyr';
+  const base = `https://send.monobank.ua/jar/${MONO_JAR_ID}`;
+  function monoUrl(a){ return (!a||Number(a)<=0) ? base : `${base}?amount=${Math.round(Number(a))}`; }
+  function openMono(a){ const w = window.open(monoUrl(a),'_blank','noopener'); if(w&&w.opener) w.opener=null; }
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('[data-mono-amount]'); if(!btn) return; e.preventDefault();
+    const val = Number(btn.getAttribute('data-mono-amount'));
+    if(val>0) openMono(val);
+    else {
+      const t=(window.T?T('donateMonoPrompt','Введіть суму у ₴'):'Введіть суму у ₴');
+      const userVal=prompt(t,'100'); if(userVal&&!isNaN(Number(userVal))&&Number(userVal)>0) openMono(userVal);
+    }
+  });
+  const link=document.getElementById('monoDonateLink');
+  if (link) link.addEventListener('click', function(e){ e.preventDefault(); openMono(0); });
+})();
+</script>
+
 </div>
 </div>
 <div class="modalActions center">
-<button class="btn primary" data-i18n="ok" id="donateOk">OK</button>
+  <button class="btn primary" data-i18n="ok" id="donateOk">OK</button>
+</div>
+</div>
 </div>
 </div>
 </div>
