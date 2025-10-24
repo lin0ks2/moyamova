@@ -81,7 +81,7 @@ header .brand{
   box-shadow: 0 0 0 2px var(--focus-ring);
 }
 header .logo-mark{
-  width:52px;
+  width:auto;
   height: 52px;
   border-radius: 6px;
   background: var(--card);
