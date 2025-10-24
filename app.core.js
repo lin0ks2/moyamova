@@ -372,7 +372,7 @@ try{
   try {
     var mark = Number(localStorage.getItem('updateJustApplied') || 0);
     if (mark && Date.now() - mark < 120000) {
-      alert('Обновление успешно установлено!');
+      try{var __L=(window.App&&App.settings&&(App.settings.uiLang||App.settings.lang))||'ru';var __B=(window.I18N&&I18N[__L])||(window.I18N&&I18N.ru)||{};alert(__B.updateApplied||'Обновление успешно установлено!');}catch(_){alert('Обновление успешно установлено!');}
       localStorage.removeItem('updateJustApplied');
     }
   } catch (_) {}

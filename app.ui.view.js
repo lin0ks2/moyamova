@@ -1878,12 +1878,12 @@ regStubHint:'Placeholder — activation logic will be added later.'}
       const remote = await fetchRemoteVersion();
       const sw = await updateServiceWorker();
       if ((remote && remote !== current) || sw.waiting){
-        if (confirm(`${T('checkUpdates')}: ${remote || ''}. Перезагрузить?`)){
+        if (confirm(`${T('checkUpdates')}: ${remote || ''}. ${T('reloadQuestion','Перезагрузить?')}`)){
           if (sw.waiting) await applyUpdate(sw.reg);
           else { try{ localStorage.setItem('updateJustApplied', String(Date.now())); }catch(_){}; location.reload(); }
         }
       } else {
-        alert(`${T('checkUpdates')}: обновлений нет. (${current})`);
+        alert(`${T('checkUpdates')}: ${T('updateNone','обновлений нет')} (${current})`);
       }
     });
 
