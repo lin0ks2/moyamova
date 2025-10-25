@@ -14,9 +14,7 @@ let CACHE_NAME = CACHE_PREFIX + SW_VERSION_FALLBACK;
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     try {
-      const res = await fetch('version.json', { cache: 'no-store' 
-  try { const c=await caches.open(CACHE_NAME); await c.addAll(["./", "app.core.js", "app.trainer.js", "app.ui.view.js", "apple-touch-icon-180x180.png", "base.css", "components.css", "dicts.js", "favicon-192x192.png", "favicon-512x512.png", "i18n.js", "index.html", "modals.css", "overrides.css", "states.css", "tokens.css"]); } catch (e) {}
-});
+      const res = await fetch('version.json', { cache: 'no-store' });
       if (res && res.ok) {
         const data = await res.json().catch(() => ({}));
         const v = (data && data.version) ? String(data.version) : SW_VERSION_FALLBACK;

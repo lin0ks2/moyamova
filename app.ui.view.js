@@ -1243,10 +1243,6 @@ function close(){ modal.classList.add('hidden'); }
     try{
       const t = (typeof App==='object' && typeof App.i18n==='function') ? (App.i18n()||{}) : {};
       if (titleEl && t.donateTitle)  titleEl.textContent = String(t.donateTitle);
-      // apply any data-i18n inside the donate modal
-      try {
-        if (modal) modal.querySelectorAll('[data-i18n]').forEach(function(el){ var key = el.getAttribute('data-i18n'); if (t[key]) el.textContent = String(t[key]); });
-      } catch(_){}
       if (contentEl && t.donateText){
         const p = contentEl.querySelector('p');
         if (p) p.textContent = String(t.donateText);

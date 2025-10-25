@@ -1,80 +1,75 @@
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Политика конфиденциальности</title>
-</head>
-<body>
+<!doctype html><!-- ==========================================================
+  Project: MOYAMOVA
+  File: privacy.ru.html
+  Purpose: Политика конфиденциальности
+  Version: 1.0
+  Last modified: 2025-10-19
+-->
 
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MOYAMOVA</title>
 <style>
-html,body{background:#fff;color:#111;margin:0;padding:0}
-*{box-sizing:border-box}
-main{padding:20px 16px 24px;max-width:920px;margin:0 auto;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:#111}
-h1,h2{color:#111}
-/* top bar */
-.topbar{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #eee}
-.topbar .wrap{max-width:920px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
-a{color:#0b57d0;text-decoration:none}
-a:hover{text-decoration:underline}
-.lang{color:#555}
-.lang .sep{margin:0 8px;color:#c0c0c0}
-/* bottom block with divider */
-.bottomnav{max-width:920px;margin:28px auto 24px;padding:16px 16px 0;text-align:center;border-top:1px solid #eee}
-.bottomnav .links{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;margin-top:10px}
-.bottomnav .links a{color:#5778c5;text-decoration:none;font-size:0.95rem;opacity:0.9}
-.bottomnav .links a:hover{opacity:1;text-decoration:underline}
-.bottom-back{margin:12px 0 0;font-size:1rem}
+  body{max-width:880px;margin:40px auto;padding:0 16px;line-height:1.65;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif}
+  h1{margin:.2em 0 .4em;font-size:1.8rem}
+  h2{margin:1.4em 0 .6em;font-size:1.2rem}
+  a{text-decoration:none;border-bottom:1px dotted currentColor}
+  a:hover{border-bottom-color:transparent}
+  .langs{text-align:right;font-size:.9rem;opacity:.8}
+  .langs a{margin-left:8px}
+  footer{margin-top:32px;text-align:center;opacity:.75;font-size:.9rem}
 </style>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="components.css">
+<link rel="stylesheet" href="modals.css">
+<link rel="stylesheet" href="states.css">
+<link rel="stylesheet" href="overrides.css">
+</head><body>
+<nav class="legal-return" role="navigation"><a href="./index.html">Вернуться к тренировке</a></nav>
 
-<div class="topbar">
-  <div class="wrap">
-    <a href="./">← Вернуться к тренировке</a>
-    <div class="lang"><span>RU</span> <span class="sep">|</span> <a href="privacy.uk.html">UK</a> <span class="sep">|</span> <a href="privacy.en.html">EN</a></div>
-  </div>
+<div class="langs">
+  <span>Language:</span>
+  <a href="./privacy.en.html">EN</a>
+  <a href="./privacy.ru.html">RU</a>
+  <a href="./privacy.uk.html">UK</a>
 </div>
 
-  <main>
-    <h1>Политика конфиденциальности</h1>
+<main>
+<h1>Политика конфиденциальности</h1>
+<p>Последнее обновление: 2025-10-09</p>
+<p><b>MOYAMOVA</b> — это клиентское веб‑приложение. У нас нет серверного бэкенда, и мы не собираем и не храним персональные данные на наших серверах.</p>
 
-    <h2>1. Общие положения</h2>
-    <p>Мы уважаем вашу конфиденциальность. Настоящая политика объясняет, какие данные собираются, как они используются и как вы можете управлять ими. Наше приложение не требует регистрации и не передает ваши данные на сервер.</p>
+<h2>Какие данные использует приложение</h2>
+<ul>
+  <li><b>Локальный прогресс:</b> ваш прогресс и настройки хранятся только на вашем устройстве через <code>localStorage</code>. Мы не получаем и не обрабатываем эти данные.</li>
+  <li><b>Офлайн‑кэш:</b> статические файлы (HTML/CSS/JS, словари) могут кэшироваться Service Worker для офлайн‑режима. Персональные данные не кэшируются.</li>
+</ul>
 
-    <h2>2. Обрабатываемые данные</h2>
-    <p>Все пользовательские данные (настройки, прогресс, язык, результаты тренировок) хранятся <strong>локально в вашем браузере</strong> или в <strong>кэше PWA-приложения</strong>. Мы не имеем доступа к этим данным и не передаём их третьим лицам.</p>
+<h2>Пожертвования</h2>
+<p>Пожертвования обрабатываются сервисом <b>PayPal</b>. При пожертвовании PayPal может собирать и обрабатывать ваши персональные и платёжные данные по своим правилам.</p>
 
-    <h2>3. Пожертвования</h2>
-    <p>Вы можете поддержать проект через:</p>
-    <ul>
-      <li><strong>PayPal (Europe) S.à r.l. et Cie, S.C.A.</strong> — обработка в соответствии с их условиями и политикой конфиденциальности;</li>
-      <li><strong>Monobank (АО «Универсал Банк»)</strong> — через публичную «банку» (jar).</li>
-    </ul>
-    <p>Платёжные данные обрабатываются соответствующими платёжными сервисами. Мы <strong>не собираем и не храним</strong> никакие сведения о транзакциях.</p>
+<h2>Cookies / Аналитика</h2>
+<p>Мы не используем аналитику, рекламные или трекинговые cookies. Cookies не устанавливаются.</p>
 
-    <h2>4. Аналитика</h2>
-    <p>Мы используем <strong>Google Analytics (GA4)</strong> для анализа использования приложения и его улучшения. Данные собираются в агрегированном виде. IP-адреса маскируются, а информация не используется для персонализированной рекламы. Вы можете отключить сбор статистики, включив режим <em>“Do Not Track”</em> или с помощью блокировщиков аналитики в браузере.</p>
+<h2>Ваш выбор</h2>
+<ul>
+  <li>Чтобы сбросить прогресс, используйте сброс в приложении или очистите данные сайта в браузере.</li>
+  <li>Вопросы: <a href="mailto:peiko.oleh@gmail.com">peiko.oleh@gmail.com</a>.</li>
+</ul>
 
-    <h2>5. Cookies</h2>
-    <p>Мы используем минимальные технические cookie-файлы, необходимые для корректной работы приложения и сохранения языка интерфейса. Эти файлы не содержат персональных данных.</p>
+<h2>Контролёр данных</h2>
+<p>Peiko Oleh — Контакт: <a href="mailto:peiko.oleh@gmail.com">peiko.oleh@gmail.com</a>.</p>
 
-    <h2>6. Удаление данных</h2>
-    <p>Все данные находятся только в вашем браузере. Чтобы удалить их, очистите данные сайта или кэш браузера. Для PWA — удалите установленное приложение. После этого все сохранённые данные будут безвозвратно удалены.</p>
+<h2>Дети</h2>
+<p>Приложение предназначено для пользователей 16+.</p>
+</main>
 
-    <h2>7. Дети</h2>
-    <p>Приложение не предназначено для использования детьми младше 13 лет. Мы не собираем данные детей сознательно.</p>
+<footer> MOYAMOVA © 2025 </footer>
 
-    <h2>8. Изменения политики</h2>
-    <p>Мы можем периодически обновлять политику. Актуальная версия всегда доступна в приложении.</p>
+<nav class="legal-return" role="navigation"><a href="./index.html">Вернуться к тренировке</a></nav>
+</body></html>
 
-    <p><em>Последнее обновление: Октябрь 2025</em></p>
-  </main>
-
-<div class="bottomnav">
-  <div class="links">
-    <a href="terms.ru.html">Условия использования</a>
-<a href="impressum.ru.html">Юридическая информация</a>
-  </div>
-  <div class="bottom-back"><a href="./">← Вернуться к тренировке</a></div>
-</div>
-</body>
-</html>
+<!-- ====================== End of file =======================
+  File: privacy.ru.html • Version: 1.0 • 2025-10-19
+-->
