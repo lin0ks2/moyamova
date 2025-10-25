@@ -729,7 +729,13 @@ function renderDictList() {
     prevBtn.className = 'iconOnly';
     prevBtn.title = (App.i18n().ttPreview || 'Предпросмотр');
     prevBtn.textContent = '👁️';
-    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); App.Decks.openPreview(words, name.textContent); });
+    if (window.License && window.License.isPro()) {
+      prevBtn.addEventListener('click', (e) => { e.stopPropagation(); App.Decks.openPreview(words, name.textContent); });
+    } else {
+      prevBtn.classList.add('disabled');
+      prevBtn.setAttribute('disabled','true');
+      try { prevBtn.title = (App.i18n && App.i18n().previewLocked) || prevBtn.title; } catch(_) {}
+    }
     actions.appendChild(prevBtn);
 
     if (key === 'mistakes') {

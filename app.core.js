@@ -8,6 +8,24 @@
 
 (function(){
   const App = window.App = (window.App||{});
+// ---- Licensing (phase 1: local flag) ----
+window.License = (function(){
+  const KEY = 'moya.license';
+  const FREE_LIMIT = 20;
+  function read(){ try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ return {}; } }
+  function isPro(){
+    const lic = read();
+    return !!(lic && (lic.plan === 'pro' || lic.plan === 'lifetime' || lic.active === true));
+  }
+  function markFree(){ try{ localStorage.setItem(KEY, JSON.stringify({plan:'free'})); }catch(_){} }
+  function activatePro(){ try{ localStorage.setItem(KEY, JSON.stringify({plan:'pro', active:true})); }catch(_){} }
+  return { isPro, markFree, activatePro, FREE_LIMIT };
+})();
+
+document.addEventListener('DOMContentLoaded', function(){
+  try { document.body.classList.toggle('free-mode', !window.License.isPro()); } catch(_) {}
+});
+
   App.APP_VER = '1.0';
 
   const LS_SETTINGS = 'k_settings_v1_3_1';
@@ -377,3 +395,19 @@ try{
     }
   } catch (_) {}
 })();
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  try {
+    if (window.License && !window.License.isPro()) {
+      ['btnBackupExport','btnBackupImport'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (el) {
+          el.setAttribute('disabled','true');
+          el.classList.add('disabled');
+          try { el.title = (App.i18n && App.i18n().backupLocked) || el.title || 'Доступно в полной версии'; } catch(_) {}
+        }
+      });
+    }
+  } catch(_) {}
+});

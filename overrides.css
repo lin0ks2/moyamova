@@ -362,3 +362,12 @@ html[data-theme="dark"] #infoModal .infoContent > ul{
   visibility: hidden !important;
 }
 </style>
+
+
+/* FREE mode adjustments */
+.free-mode .iconOnly.disabled,
+.iconOnly.disabled[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}

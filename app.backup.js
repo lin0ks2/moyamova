@@ -27,6 +27,13 @@ function t(k){
   var LS_UI_LANG  = 'lexitron.uiLang';
   var LS_DECK_KEY = 'lexitron.deckKey';
   var LS_ACTIVE   = 'lexitron.activeKey';
+  function isPro(){ try { return window.License && window.License.isPro && window.License.isPro(); } catch(_) { return false; } }
+  function deny(){ 
+    var msg = t && t('backupLocked') || 'Доступно в полной версии'; 
+    if (App && App.UI && App.UI.toast) App.UI.toast({ title:t('backupTitle') || 'Резервные копии', message: msg });
+    else alert(msg);
+  }
+
 
   function safeParse(json){ try{ return JSON.parse(json); }catch(_){ return null; } }
   function isObj(x){ return !!x && typeof x === 'object' && !Array.isArray(x); }
@@ -68,6 +75,7 @@ function t(k){
     };
   }
   function exportToFile(){
+    if (!isPro()) { deny(); return; }
     try{
       var data = buildExportObject();
       downloadString(stampName(), JSON.stringify(data, null, 2));
@@ -205,11 +213,13 @@ function t(k){
   }
 
   function importFromJSON(jsonText){
+    if (!isPro()) { deny(); return; }
     var data = safeParse(jsonText);
     if (!isObj(data)) throw new Error('Не удаётся разобрать JSON-файл');
     applyImportedData(data);
   }
   function importFromFile(file){
+    if (!isPro()) { deny(); return; }
     if (!file) return;
     var reader = new FileReader();
     reader.onload = function(ev){
@@ -238,6 +248,7 @@ function t(k){
 
   App.Backup.export = function(){ exportToFile(); };
   App.Backup.import = function(){
+    if (!isPro()) { deny(); return; }
     var input = document.createElement('input');
     input.type = 'file';
     input.accept = 'application/json,.json';
