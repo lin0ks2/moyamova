@@ -28,11 +28,6 @@
 
       // ===== Меню/подсказки/тултипы =====
       donateTitle: "Поддержать проект",
-      donateMonoTitle: "Поддержать через Monobank",
-      donatePaypalTitle: "Поддержать через PayPal",
-      donateMonoOpen: "Открыть Monobank",
-      donatePaypalOpen: "Открыть PayPal",
-      donateLegalNote: "Донат является добровольным пожертвованием и не является оплатой товаров или услуг.",
       settingsTitle: "Настройки",
       settingsInDev: "",
       tt_ui_theme: "Тема",
@@ -131,11 +126,6 @@
 
       // ===== Меню/підказки/тултіпи =====
       donateTitle: "Підтримати проєкт",
-      donateMonoTitle: "Підтримати через Monobank",
-      donatePaypalTitle: "Підтримати через PayPal",
-      donateMonoOpen: "Відкрити Monobank",
-      donatePaypalOpen: "Відкрити PayPal",
-      donateLegalNote: "Донат є добровільним пожертвуванням і не є оплатою товарів чи послуг.",
       settingsTitle: "Налаштування",
       settingsInDev: "",
       tt_ui_theme: "Тема",

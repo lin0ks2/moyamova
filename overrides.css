@@ -286,3 +286,71 @@ body{
 
 /* Чуть воздуха под шапкой — подстрой по вкусу */
 #dictSpoiler{ margin-top: 24px; }
+
+/* === INFO MODAL — tabs & content unify with donate === */
+
+/* Таб-бар как сегмент-контрол */
+#infoModal [role="tablist"]{
+  display:inline-flex;
+  gap:8px;
+  padding:6px;
+  border-radius:12px;
+  background:transparent;
+}
+
+/* Кнопки табов (пилюли) */
+#infoModal [role="tab"]{
+  appearance:none;
+  cursor:pointer;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:.5rem .9rem;
+  font-weight:600;
+  background: rgba(0,0,0,0.02);     /* светлая */
+  color:inherit;
+  transition: transform .06s ease, filter .15s ease, background .15s ease;
+}
+html[data-theme="dark"] #infoModal [role="tab"],
+body[data-theme="dark"] #infoModal [role="tab"]{
+  background: rgba(255,255,255,0.04); /* тёмная */
+}
+
+#infoModal [role="tab"]:hover{ filter:brightness(1.05); }
+#infoModal [role="tab"]:active{ transform:scale(.98); }
+
+/* Активный таб */
+#infoModal [role="tab"][aria-selected="true"]{
+  border-color: var(--accent, #10b981);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent, #10b981) 18%, transparent);
+}
+
+/* Контентные секции внутри — как “карточки” (аналог donateBlock) */
+#infoModal .infoContent > .section,
+#infoModal .infoContent > .group,
+#infoModal .infoContent > .panel,
+#infoModal .infoContent > ul{
+  margin-top:12px;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background: rgba(0,0,0,0.02);      /* светлая */
+}
+html[data-theme="dark"] #infoModal .infoContent > .section,
+html[data-theme="dark"] #infoModal .infoContent > .group,
+html[data-theme="dark"] #infoModal .infoContent > .panel,
+html[data-theme="dark"] #infoModal .infoContent > ul{
+  background: rgba(255,255,255,0.04); /* тёмная */
+}
+
+/* Типографика списков в инфо */
+#infoModal .infoContent ul{ padding-left:1.2rem; }
+#infoModal .infoContent li{ margin:.35rem 0; line-height:1.35; }
+
+/* Кнопка “Проверить обновления” и подобные — в общем стиле */
+#infoModal .infoContent .btn,
+#infoModal .infoContent .primary,
+#infoModal .infoContent .action{
+  font-weight:600;
+  border-radius:.5rem;
+  text-decoration:none;
+}

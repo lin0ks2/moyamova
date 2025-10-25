@@ -186,7 +186,13 @@ document.addEventListener('DOMContentLoaded', function(){
 <!-- Monobank -->
 <div class="donateBlock">
   <div class="donateTitle" data-i18n="donateMonoTitle">Підтримати через Monobank</div>
-<a class="donatePrimary" href="#" id="monoDonateLink" rel="noopener" target="_blank" data-i18n="donateMonoOpen">
+  <div class="donatePresets">
+    <button class="donateBtn" data-mono-amount="50">50 ₴</button>
+    <button class="donateBtn" data-mono-amount="100">100 ₴</button>
+    <button class="donateBtn" data-mono-amount="200">200 ₴</button>
+    <button class="donateBtn" data-mono-amount="0" data-i18n="donateMonoCustom">Інша сума</button>
+  </div>
+  <a class="donatePrimary" href="#" id="monoDonateLink" rel="noopener" target="_blank" data-i18n="donateMonoOpen">
     Відкрити Monobank
   </a>
 </div>
@@ -216,12 +222,8 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 </div>
-</div
-<!-- Legal donate notice (plain, under PayPal block) -->
-<div class="donateLegalNote" role="note" style="margin:14px auto 0;max-width:600px;font-size:0.85rem;line-height:1.5;opacity:0.9;display:flex;gap:10px;align-items:flex-start;justify-content:center;text-align:left;">
-  <span class="icon" aria-hidden="true" style="font-size:18px;margin-top:2px;">⚖️</span>
-  <span data-i18n="donateLegalNote">Донат є добровільним пожертвуванням і не є оплатою товарів чи послуг.</span>
 </div>
+
 <script>
 (function(){
   // Monobank donate
