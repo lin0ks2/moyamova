@@ -1,8 +1,17 @@
+/* ==========================================================
+ * Project: Lexitron
+ * File: site.webmanifest
+ * Purpose: Текстовый ресурс
+ * Version: 1.0
+ * Last modified: 2025-10-19
+*/
+
 {
   "name": "MOYAMOVA",
   "short_name": "MOYAMOVA",
   "start_url": ".",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0b1020",
   "theme_color": "#10b981",
   "icons": [
@@ -25,3 +34,7 @@
   "scope": ".",
   "id": "/"
 }
+
+/* ====================== End of file =======================
+ * File: site.webmanifest • Version: 1.0 • 2025-10-19
+*/
