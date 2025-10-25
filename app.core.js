@@ -1,13 +1,4 @@
-/* ==========================================================
- * Project: MOYAMOVA
- * File: app.core.js
- * Purpose: Инициализация и глобальные константы
- * Version: 1.0
- * Last modified: 2025-10-19
-*/
 
-(function(){
-  const App = window.App = (window.App||{});
 // ---- Licensing (phase 1: local flag) ----
 window.License = (function(){
   const KEY = 'moya.license';
@@ -26,6 +17,16 @@ document.addEventListener('DOMContentLoaded', function(){
   try { document.body.classList.toggle('free-mode', !window.License.isPro()); } catch(_) {}
 });
 
+/* ==========================================================
+ * Project: MOYAMOVA
+ * File: app.core.js
+ * Purpose: Инициализация и глобальные константы
+ * Version: 1.0
+ * Last modified: 2025-10-19
+*/
+
+(function(){
+  const App = window.App = (window.App||{});
   App.APP_VER = '1.0';
 
   const LS_SETTINGS = 'k_settings_v1_3_1';

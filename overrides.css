@@ -366,7 +366,8 @@ html[data-theme="dark"] #infoModal .infoContent > ul{
 
 /* FREE mode adjustments */
 .free-mode .iconOnly.disabled,
-.iconOnly.disabled[disabled] {
+.iconOnly.disabled[disabled],
+button.disabled[disabled] {
   opacity: 0.4;
   pointer-events: none;
   cursor: default;

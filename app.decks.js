@@ -1,3 +1,11 @@
+function limitIfFree(list){
+  try{
+    if (!window.License || window.License.isPro()) return list;
+    if (Array.isArray(list)) return list.slice(0, (window.License && window.License.FREE_LIMIT) || 20);
+    return list;
+  }catch(_){ return list; }
+}
+
 /* ==========================================================
  * Project: MOYAMOVA
  * File: app.decks.js
@@ -68,8 +76,7 @@
       var u = App.dictRegistry.user || {};
       var d = u[key] && u[key].words;
       d = Array.isArray(d) ? d : [];
-      d = limitIfFree(d);
-      return d;
+      return limitIfFree(d);
     }
 
     if (window.decks && Array.isArray(window.decks[key])) return limitIfFree(window.decks[key]);
@@ -190,14 +197,6 @@
   }
   function saveLS(){
     try { localStorage.setItem(LS_KEY, JSON.stringify(S.state)); } catch(_){}
-  }
-
-  function limitIfFree(list){
-    try{
-      if (!window.License || window.License.isPro()) return list;
-      if (Array.isArray(list)) return list.slice(0, (window.License && window.License.FREE_LIMIT) || 20);
-      return list;
-    }catch(_){ return list; }
   }
 
   function deckKey(){

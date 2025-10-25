@@ -730,12 +730,12 @@ function renderDictList() {
     prevBtn.title = (App.i18n().ttPreview || 'Предпросмотр');
     prevBtn.textContent = '👁️';
     if (window.License && window.License.isPro()) {
-      prevBtn.addEventListener('click', (e) => { e.stopPropagation(); App.Decks.openPreview(words, name.textContent); });
-    } else {
-      prevBtn.classList.add('disabled');
-      prevBtn.setAttribute('disabled','true');
-      try { prevBtn.title = (App.i18n && App.i18n().previewLocked) || prevBtn.title; } catch(_) {}
-    }
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); App.Decks.openPreview(words, name.textContent); });
+} else {
+  prevBtn.classList.add('disabled');
+  prevBtn.setAttribute('disabled','true');
+  try { prevBtn.title = (App.i18n && App.i18n().previewLocked) || prevBtn.title; } catch(_) {}
+}
     actions.appendChild(prevBtn);
 
     if (key === 'mistakes') {
