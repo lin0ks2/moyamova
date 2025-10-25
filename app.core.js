@@ -412,3 +412,47 @@ document.addEventListener('DOMContentLoaded', function(){
     }
   } catch(_) {}
 });
+// ---- FREE UX: одноразовый тост + подсказка в бэкапах + утилита доната ----
+(function(){
+  function t(key, fallback){
+    try { return (window.App && App.i18n && App.i18n()[key]) || fallback; } catch(_) { return fallback; }
+  }
+  function openDonate(){
+    try {
+      var dm = document.getElementById('donateModal');
+      if (dm) { dm.classList.remove('hidden'); return; }
+      var btn = document.getElementById('btnDonate') || document.querySelector('[data-action="donate"]');
+      if (btn) btn.click();
+    } catch(_) {}
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    try {
+      // Мягкое одноразовое сообщение про лимит 20 слов
+      if (window.License && !window.License.isPro() && !sessionStorage.getItem('freeNoticeShown')) {
+        var msg = t('freeLimitNote', 'У бесплатной версии доступны первые 20 слов. Зарегистрируйтесь, чтобы открыть весь словарь.');
+        if (window.App && App.UI && typeof App.UI.toast === 'function') {
+          App.UI.toast(msg);
+        } else {
+          setTimeout(function(){ alert(msg); }, 300);
+        }
+        sessionStorage.setItem('freeNoticeShown', '1');
+      }
+
+      // Подпись прямо в секции бэкапов
+      if (window.License && !window.License.isPro()) {
+        var backupSection = document.getElementById('backupSection');
+        if (backupSection && !backupSection.querySelector('.free-note')) {
+          var note = document.createElement('div');
+          note.className = 'free-note muted';
+          note.style.marginTop = '8px';
+          note.textContent = t('backupLocked', 'Доступно в полной версии');
+          backupSection.appendChild(note);
+        }
+      }
+
+      // Экспортируем утилиту на всякий
+      window.openDonate = openDonate;
+    } catch(_) {}
+  });
+})();
