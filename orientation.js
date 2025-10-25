@@ -1,20 +1,9 @@
 
-/*! orientation.js — portrait-only enforcement for MOYAMOVA (enhanced i18n listeners) */
+/*! orientation.lock.js — portrait-only enforcement + proper i18n hooks */
 (function () {
-  const isIOS = /iP(hone|od|ad)/.test(navigator.platform) || 
+  const isIOS = /iP(hone|od|ad)/.test(navigator.platform) ||
                 (navigator.userAgent.includes("Mac") && "ontouchend" in document);
   const $ = (s, d=document) => d.querySelector(s);
-
-  function tr(key, fallback) {
-    try {
-      if (typeof window.T === 'function') return window.T(key, fallback);
-      if (window.I18N && typeof window.getUiLang === 'function') {
-        const lang = window.getUiLang();
-        return (window.I18N[lang] && window.I18N[lang][key]) || fallback;
-      }
-    } catch(e){/* noop */}
-    return fallback;
-  }
 
   function ensureStyles() {
     if ($('#orientation-lock-style')) return;
@@ -48,20 +37,14 @@
     overlay.className = 'orientation-overlay';
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-live', 'polite');
+    // Use data-i18n to let app's hydrateI18N update texts
     overlay.innerHTML = `
       <div class="card">
-        <h2 id="orientTitle"></h2>
-        <p id="orientText"></p>
+        <h2 id="orientTitle" data-i18n="rotateToPortraitTitle">Поверніть пристрій</h2>
+        <p id="orientText" data-i18n="rotateToPortraitText">Доступний лише портретний режим. Будь ласка, використовуйте застосунок вертикально.</p>
       </div>`;
     document.body.appendChild(overlay);
-  }
-
-  function refreshTexts() {
-    const h2 = $('#orientTitle');
-    const p  = $('#orientText');
-    if (!h2 || !p) return;
-    h2.textContent = tr('rotateToPortraitTitle', 'Поверните устройство');
-    p.textContent  = tr('rotateToPortraitText',  'Доступен только портретный режим. Пожалуйста, используйте приложение вертикально.');
+    try { if (window.hydrateI18N) window.hydrateI18N(); } catch(_) {}
   }
 
   function showOverlay(show) {
@@ -69,7 +52,8 @@
     if (!el) return;
     el.style.display = show ? 'flex' : 'none';
     document.body.classList.toggle('orientation-blocked', !!show);
-    if (show) refreshTexts();
+    // Re-hydrate texts if needed
+    try { if (window.hydrateI18N) window.hydrateI18N(); } catch(_) {}
   }
 
   function isLandscape() {
@@ -78,7 +62,7 @@
   }
 
   async function tryLock() {
-    if (isIOS) return; // iOS doesn't allow locking
+    if (isIOS) return; // iOS won't allow locking
     const api = screen.orientation && screen.orientation.lock;
     if (!api) return;
     try { await screen.orientation.lock('portrait'); } catch (e) { /* ignore */ }
@@ -90,36 +74,17 @@
     if (!land) tryLock();
   }
 
-  // --- wire language change signals broadly ---
   function wireI18N() {
-    // 1) our canonical custom event (already used in the app sometimes)
-    document.addEventListener('i18n:lang-changed', refreshTexts, false);
-    // 2) alternative names that projects often use
-    document.addEventListener('lang:changed', refreshTexts, false);
-    document.addEventListener('ui:lang-changed', refreshTexts, false);
-    window.addEventListener('languagechange', refreshTexts, false); // browser-level
-    
-    // 3) if app exposes setUiLang, wrap it to also refresh
-    if (typeof window.setUiLang === 'function' && !window.setUiLang.__wrapped_for_orient__) {
-      const orig = window.setUiLang;
-      window.setUiLang = function () {
-        const r = orig.apply(this, arguments);
-        try {
-          // dispatch a normalized event too
-          document.dispatchEvent(new CustomEvent('i18n:lang-changed'));
-        } catch(e){}
-        refreshTexts();
-        return r;
-      };
-      window.setUiLang.__wrapped_for_orient__ = true;
-    }
-
-    // 4) observe changes to <html lang="..">
+    // Listen to the app's actual event and generic ones
+    document.addEventListener('i18n:lang-changed', () => { try { window.hydrateI18N && window.hydrateI18N(); } catch(_) {} }, false);
+    window.addEventListener('lexi:lang-changed', () => { try { window.hydrateI18N && window.hydrateI18N(); } catch(_) {} }, false);
+    window.addEventListener('languagechange', () => { try { window.hydrateI18N && window.hydrateI18N(); } catch(_) {} }, false);
+    // Observe changes to <html lang="..">
     const htmlEl = document.documentElement;
     const mo = new MutationObserver((muts)=>{
       for (const m of muts) {
         if (m.type === 'attributes' && m.attributeName === 'lang') {
-          refreshTexts();
+          try { window.hydrateI18N && window.hydrateI18N(); } catch(_) {}
           break;
         }
       }
@@ -127,25 +92,17 @@
     mo.observe(htmlEl, { attributes: true });
   }
 
-  // Init
   document.addEventListener('DOMContentLoaded', () => {
     ensureStyles();
     ensureOverlay();
     wireI18N();
-    refreshTexts();
     update();
   });
-
-  // Respond to orientation/resize/visibility
   window.addEventListener('orientationchange', update, { passive: true });
   window.addEventListener('resize', update, { passive: true });
   document.addEventListener('visibilitychange', () => { if (!document.hidden) update(); });
 
-  // Retry lock on first user gesture (Chrome requirement)
   const once = () => { tryLock(); document.removeEventListener('click', once); document.removeEventListener('touchend', once); };
   document.addEventListener('click', once, { once: true });
   document.addEventListener('touchend', once, { once: true });
-
-  // Expose manual refresh hook (if app wants to call)
-  window.refreshOrientationTexts = refreshTexts;
 })();
