@@ -354,3 +354,11 @@ html[data-theme="dark"] #infoModal .infoContent > ul{
   border-radius:.5rem;
   text-decoration:none;
 }
+<style>
+.intro-text {
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  visibility: hidden !important;
+}
+</style>
